@@ -8,6 +8,11 @@ use OpenAI\Responses\Completions\CreateResponse;
 
 class OpenAIService
 {
+    /**
+     * @param $data
+     * @param $roomId
+     * @return CreateResponse
+     */
     public function analyzeSprint($data, $roomId): CreateResponse
     {
         $dataString = json_encode($data, JSON_PRETTY_PRINT);
@@ -33,6 +38,11 @@ class OpenAIService
         return $response;
     }
 
+    /**
+     * @param $data
+     * @param $roomId
+     * @return ReviewSummaryRequest
+     */
     public function storeRequest($data, $roomId): ReviewSummaryRequest
     {
         $reviewSummaryRequest = new ReviewSummaryRequest();

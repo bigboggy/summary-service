@@ -17,6 +17,11 @@ class ReviewSummaryController extends Controller
         $this->openAIService = $openAIService;
     }
 
+    /**
+     * Get all review summaries for a room
+     * @param $roomId
+     * @return JsonResponse
+     */
     public function index($roomId): JsonResponse
     {
         $reviewSummaries = ReviewSummaryRequest::where('room_id', $roomId)->get();
@@ -30,6 +35,12 @@ class ReviewSummaryController extends Controller
         return response()->json($reviewSummaries);
     }
 
+    /**
+     * Validate the request and analyze the sprint data
+     * @param StoreReviewSummaryRequest $request
+     * @param $roomId
+     * @return JsonResponse
+     */
     public function store(StoreReviewSummaryRequest $request, $roomId): JsonResponse
     {
         try {
