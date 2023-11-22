@@ -19,7 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::get('/review-summary-requests/{roomId}', [ReviewSummaryController::class, 'index'])
+    ->name('review-summary-requests.index');
+
 Route::post(
-    '/review-summary-requests',
+    '/review-summary-requests/{roomId}',
     [ReviewSummaryController::class, 'store']
 )->name('review-summary-requests.store');
+

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('review_summary_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('room_id');
             $table->integer('current_sprint_day');
             $table->integer('current_sprint_current_morale');
             $table->integer('current_sprint_progress');
